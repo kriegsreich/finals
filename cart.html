@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Shop - Your Cart</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+
+  <header>
+    <h1 onclick="location.href='index.html'" style="cursor:pointer">My Shop</h1>
+    <nav id="desktopNav">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cart.html">Your Cart</a>
+    </nav>
+    
+    <button class="mobile-nav-trigger" id="burgerBtn" aria-label="Open menu">
+      <span class="burger-icon"></span>
+    </button>
+  </header>
+
+  <div class="drawer-overlay" id="menuOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer"></aside>
+
+  <div class="container" style="max-width: 760px;">
+    <h2>Your Cart</h2>
+    <div id="cartContainer"></div>
+    <div class="cart-total" id="cartTotal"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

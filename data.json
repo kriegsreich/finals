@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "description": "Comfortable over-ear headphones with noise cancellation.",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "description": "Track your fitness and notifications on the go.",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 3,
+    "name": "Backpack",
+    "description": "Durable water-resistant backpack for daily use.",
+    "price": 34.50,
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 4,
+    "name": "Coffee Mug",
+    "description": "Ceramic mug that keeps your coffee warm longer.",
+    "price": 12.00,
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 5,
+    "name": "Desk Lamp",
+    "description": "Adjustable LED lamp with three brightness levels.",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 6,
+    "name": "Bluetooth Speaker",
+    "description": "Portable speaker with rich bass and long battery life.",
+    "price": 45.00,
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 7,
+    "name": "Mechanical Keyboard",
+    "description": "Tactile mechanical switches with customizable RGB backlighting.",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 8,
+    "name": "Ergonomic Mouse",
+    "description": "Wireless vertical mouse designed to reduce wrist strain.",
+    "price": 39.50,
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 9,
+    "name": "Stainless Steel Water Bottle",
+    "description": "Double-walled vacuum insulated bottle for hot or cold drinks.",
+    "price": 18.99,
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop"
+  },
+  {
+    "id": 10,
+    "name": "Yoga Mat",
+    "description": "Eco-friendly, non-slip thick exercise mat with a carrying strap.",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=500&auto=format&fit=crop"
+  },
+  {
+  "id": 11,
+  "name": "Wireless Charger Pad",
+  "description": "Fast-charging Qi-compatible pad for smartphones and earbuds.",
+  "price": 15.49,
+  "image": "https://images.unsplash.com/photo-1633381638729-27f730955c23?q=80&w=1170&auto=format&fit=crop"
+  },
+  {
+    "id": 12,
+    "name": "Laptop Stand",
+    "description": "Aluminum adjustable riser to improve your desk posture.",
+    "price": 27.00,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop"
+  }
+]

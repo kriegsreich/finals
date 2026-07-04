@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Shop - About</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .about-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .about-content p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted, #726961);
+      margin-bottom: 20px;
+    }
+    .mobile-nav-trigger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1100;
+    }
+
+    .burger-icon {
+      display: block;
+      position: relative;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-main, #2b2622);
+      transition: background-color 0.2s ease;
+    }
+
+    .burger-icon::before,
+    .burger-icon::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-main, #2b2622);
+      left: 0;
+      transition: transform 0.25s ease, top 0.25s ease, bottom 0.25s ease;
+    }
+
+    .burger-icon::before { top: -6px; }
+    .burger-icon::after { bottom: -6px; }
+
+    .mobile-nav-trigger.is-active .burger-icon {
+      background-color: transparent;
+    }
+    .mobile-nav-trigger.is-active .burger-icon::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    .mobile-nav-trigger.is-active .burger-icon::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100%;
+      background-color: var(--bg-card, #ffffff);
+      border-left: 1px solid var(--border-color, #e5ddcf);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+      z-index: 1050;
+      padding: 90px 24px 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      z-index: 1040;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-overlay.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-drawer nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-drawer nav a {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .mobile-drawer .theme-toggle {
+      align-self: flex-start;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 768px) {
+      header nav {
+        display: none;
+      }
+      .mobile-nav-trigger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 onclick="location.href='index.html'" style="cursor:pointer">My Shop</h1>
+    <nav id="desktopNav">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cart.html">Your Cart</a>
+    </nav>
+    <button class="mobile-nav-trigger" id="burgerBtn" aria-label="Open menu">
+      <span class="burger-icon"></span>
+    </button>
+  </header>
+  <div class="drawer-overlay" id="menuOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+  </aside>
+
+  <div class="container">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p>
+        Welcome to My Shop! We are a small online store offering a simple
+        selection of everyday products, from electronics to home items.
+      </p>
+      <p>
+        This site was built as a simple example project using plain HTML,
+        CSS, and JavaScript. Product data is loaded from a JSON file, and
+        your cart is saved right in your browser using local storage, so
+        it will still be there even if you refresh the page.
+      </p>
+      <p>
+        Thanks for stopping by, and happy shopping!
+      </p>
+    </div>
+  </div>
+
+
+  <script>
+    var burgerBtn = document.getElementById("burgerBtn");
+    var mobileDrawer = document.getElementById("mobileDrawer");
+    var menuOverlay = document.getElementById("menuOverlay");
+    var desktopNav = document.getElementById("desktopNav");
+
+    function initializeMobileMenu() {
+      mobileDrawer.innerHTML = desktopNav.innerHTML;
+      
+      var mobileToggle = mobileDrawer.querySelector(".theme-toggle");
+      if (mobileToggle) {
+        mobileToggle.id = "themeToggleMobile";
+        setupThemeToggleListener(mobileToggle);
+      }
+    }
+
+    function toggleMenu() {
+      var isOpen = mobileDrawer.classList.toggle("is-open");
+      burgerBtn.classList.toggle("is-active", isOpen);
+      menuOverlay.classList.toggle("is-visible", isOpen);
+    }
+
+    burgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    initializeMobileMenu();
+    function setupThemeToggleListener(buttonElement) {
+      if (!buttonElement) return;
+      
+      buttonElement.addEventListener("click", function () {
+        var activeTheme = document.documentElement.getAttribute("data-theme");
+        var targetTheme = (activeTheme === "light") ? "dark" : "light";
+        
+        document.documentElement.setAttribute("data-theme", targetTheme);
+        localStorage.setItem("theme", targetTheme);
+        
+        var dBtn = document.getElementById("themeToggle");
+        var mBtn = document.getElementById("themeToggleMobile");
+        var icon = (targetTheme === "dark") ? "☀️" : "🌙";
+        
+        if (dBtn) dBtn.textContent = icon;
+        if (mBtn) mBtn.textContent = icon;
+      });
+    }
+
+    var initialTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    var targetIcon = (initialTheme === "dark") ? "☀️" : "🌙";
+
+    var desktopToggleBtn = document.getElementById("themeToggle");
+    var mobileToggleBtn = document.getElementById("themeToggleMobile");
+
+    if (desktopToggleBtn) desktopToggleBtn.textContent = targetIcon;
+    if (mobileToggleBtn) mobileToggleBtn.textContent = targetIcon;
+
+    setupThemeToggleListener(desktopToggleBtn);
+  </script>
+</body>
+</html>

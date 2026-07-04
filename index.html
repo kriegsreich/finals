@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Shop - Home</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1 onclick="location.href='index.html'" style="cursor:pointer">My Shop</h1>
+    <nav id="desktopNav">
+          <!-- // iyos es mtvaris da mzis emoji svg iconebi ver vnaxe -->
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cart.html">Your Cart</a>
+    </nav>
+    
+    <button class="mobile-nav-trigger" id="burgerBtn" aria-label="Open menu">
+      <span class="burger-icon"></span>
+    </button>
+  </header>
+
+  <div class="drawer-overlay" id="menuOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer"></aside>
+
+  <div class="container">
+    <h2>Our Products</h2>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search for items...">
+    </div>
+
+    <div class="card-grid" id="cardGrid"></div>
+  </div>
+
+  <div id="cartToast" class="toast-notification" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Item added to cart!</span>
+  </div>
+  
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  
+  <script src="prod.js"></script>
+</body>
+</html>
